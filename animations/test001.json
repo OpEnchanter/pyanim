@@ -1,0 +1,75 @@
+{
+    "settings": {
+        "window": {
+            "x": 960,
+            "y": 540
+        },
+        "framerate": 60,
+        "bgcol": [0,0,0]
+    },
+    "anim": [
+        {"type":"drawLine", "meta":{
+            "start": [100,100],
+            "end": [400, 100],
+            "time": 5,
+            "color": [255, 255, 255],
+            "width": 1
+        }},
+        {"type":"drawLine", "meta":{
+            "start": [400,100],
+            "end": [400, 400],
+            "time": 5,
+            "color": [255, 255, 255],
+            "width": 1
+        }},
+        {"type":"drawLine", "meta":{
+            "start": [400,400],
+            "end": [100, 400],
+            "time": 5,
+            "color": [255, 255, 255],
+            "width": 1
+        }},
+        {"type":"drawLine", "meta":{
+            "start": [100,400],
+            "end": [100, 100],
+            "time": 5,
+            "color": [255, 255, 255],
+            "width": 1
+        }},
+        {"type":"wait", "meta":{
+            "time": 120
+        }},
+        {"type":"erase", "meta":{}},
+        {"type":"wait", "meta":{
+            "time": 120
+        }},
+        {"type":"drawLine", "meta":{
+            "start": [100,100],
+            "end": [400, 100],
+            "time": 5,
+            "color": [255, 255, 255],
+            "width": 1
+        }},
+        {"type":"drawLine", "meta":{
+            "start": [400,100],
+            "end": [400, 400],
+            "time": 5,
+            "color": [255, 255, 255],
+            "width": 1
+        }},
+        {"type":"drawLine", "meta":{
+            "start": [400,400],
+            "end": [100, 400],
+            "time": 5,
+            "color": [255, 255, 255],
+            "width": 1
+        }},
+        {"type":"drawLine", "meta":{
+            "start": [100,400],
+            "end": [100, 100],
+            "time": 5,
+            "color": [255, 255, 255],
+            "width": 1
+        }}
+    ]
+}
