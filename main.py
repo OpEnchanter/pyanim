@@ -1,4 +1,4 @@
-import pygame, json, sys, math
+import pygame, json, sys, math, time
 
 # Helper functions
 def dist(a = tuple, b = tuple):
@@ -37,7 +37,8 @@ animStarted = False
 while not pygame.key.get_pressed()[pygame.key.key_code(appSettings["playerKey"])]:
     eventSystem()
 
-print("Animation Started by User")
+start = time.time()
+print("Animation Started")
 
 for step in animation:
     eventSystem()
@@ -66,6 +67,22 @@ for step in animation:
 
             pygame.display.update()
 
+    if step["type"] == "drawCircle":
+        if step["meta"]["time"] > 0:
+            for frame in range(step["meta"]["time"]):
+                for segment in range(step["meta"]["resolution"]):
+                    pygame.draw.line(
+                        win, 
+                        step["meta"]["color"],
+                        (math.sin(360/step["meta"]["time"]/step["meta"]["resolution"]*(frame+1*segment-1))*step["meta"]["radius"] + step["meta"]["position"][0], math.cos(360/step["meta"]["time"]/step["meta"]["resolution"]*(frame+1*segment-1))*step["meta"]["radius"] + step["meta"]["position"][1]),
+                        (math.sin(360/step["meta"]["time"]/step["meta"]["resolution"]*(frame+1*segment))*step["meta"]["radius"] + step["meta"]["position"][0], math.cos(360/step["meta"]["time"]/step["meta"]["resolution"]*(frame+1*segment))*step["meta"]["radius"] + step["meta"]["position"][1]),
+                        step["meta"]["width"]
+                    )
+                
+                pygame.display.update()
+
+                pygame.time.Clock().tick(animationSettings["framerate"])
+
     if step["type"] == "erase":
         win.fill(animationSettings["bgcol"])
         pygame.display.update()
@@ -79,7 +96,9 @@ for step in animation:
 
     pygame.time.Clock().tick(animationSettings["framerate"])
 
-print("Animation finished")
+end = time.time()
+elapsed = end-start
+print(f"Animation finished ({elapsed}s)")
 
 while True:
     eventSystem()

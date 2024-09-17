@@ -1,0 +1,20 @@
+{
+    "settings": {
+        "window": {
+            "x": 960,
+            "y": 540
+        },
+        "framerate": 60,
+        "bgcol": [0,0,0]
+    },
+    "anim": [
+        {"type": "drawCircle", "meta": {
+            "position":[100, 100],
+            "time":60,
+            "resolution":1000,
+            "radius": 50,
+            "color": [255, 255, 255],
+            "width": 1
+        }}
+    ]
+}
