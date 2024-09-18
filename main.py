@@ -69,13 +69,20 @@ for step in animation:
 
     if step["type"] == "drawCircle":
         if step["meta"]["time"] > 0:
+            segLen = 360/step["meta"]["time"]/step["meta"]["resolution"]
             for frame in range(step["meta"]["time"]):
                 for segment in range(step["meta"]["resolution"]):
+                    a0 = segLen*frame*(segment)
+                    a1 = segLen*frame*segment
+                    pt0 = (math.sin(a1) * 100, math.cos(a1) * 100)
+                    pt1 = (math.sin(a0) * 100, math.cos(a0) * 100)
+                    print(a1, pt0)
+                    print(a0, pt1)
                     pygame.draw.line(
                         win, 
                         step["meta"]["color"],
-                        (math.sin(360/step["meta"]["time"]/step["meta"]["resolution"]*(frame+1*segment-1))*step["meta"]["radius"] + step["meta"]["position"][0], math.cos(360/step["meta"]["time"]/step["meta"]["resolution"]*(frame+1*segment-1))*step["meta"]["radius"] + step["meta"]["position"][1]),
-                        (math.sin(360/step["meta"]["time"]/step["meta"]["resolution"]*(frame+1*segment))*step["meta"]["radius"] + step["meta"]["position"][0], math.cos(360/step["meta"]["time"]/step["meta"]["resolution"]*(frame+1*segment))*step["meta"]["radius"] + step["meta"]["position"][1]),
+                        pt0,
+                        pt1,
                         step["meta"]["width"]
                     )
                 

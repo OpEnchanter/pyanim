@@ -11,8 +11,8 @@
         {"type": "drawCircle", "meta": {
             "position":[100, 100],
             "time":60,
-            "resolution":1000,
-            "radius": 50,
+            "resolution":10,
+            "radius": 1,
             "color": [255, 255, 255],
             "width": 1
         }}
